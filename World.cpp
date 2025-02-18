@@ -1,6 +1,7 @@
 #include "World.hpp"
 #include <fstream>
 #include "Point.hpp"
+#include "Velocity.hpp"
 
 World::World(const std::string& worldFilePath) {
     std::ifstream stream(worldFilePath);
