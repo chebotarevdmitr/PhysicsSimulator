@@ -1,4 +1,5 @@
 #include "Ball.hpp"
+#include "Velocity.hpp"
 
 Ball::Ball(const Point& center, const Velocity& velocity, double radius, double mass, const sf::Color& color)
     : center_(center), velocity_(velocity), radius_(radius), mass_(mass), color_(color) {}
