@@ -1,4 +1,5 @@
 #include "Painter.hpp"
+#include "Point.hpp"
 
 Painter::Painter(sf::RenderWindow& window) : window_(window) {}
 
