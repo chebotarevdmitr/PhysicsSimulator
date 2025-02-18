@@ -4,6 +4,9 @@
 #include <SFML/Graphics.hpp>
 #include "Velocity.hpp"
 #include "Point.hpp"
+
+// Forward declaration of Point class
+class Point;
 #include "Painter.hpp"
 
 class Ball {
