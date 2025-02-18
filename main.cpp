@@ -1,4 +1,5 @@
 #include <SFML/Graphics.hpp>
+#include <iostream>
 #include "World.hpp"
 #include "Painter.hpp"
 
