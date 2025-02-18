@@ -1,3 +1,0 @@
-/home/dmitriy/Documents/my_basic_course/PhysicsSimulator/build/CMakeFiles/PhysicsSimulator.dir
-/home/dmitriy/Documents/my_basic_course/PhysicsSimulator/build/CMakeFiles/edit_cache.dir
-/home/dmitriy/Documents/my_basic_course/PhysicsSimulator/build/CMakeFiles/rebuild_cache.dir
