@@ -9,7 +9,7 @@ class World {
 public:
     World(const std::string& worldFilePath);
     const std::vector<Ball>& getBalls() const;
-    std::vector<Ball>& getBallsMutable(); // Добавлен неконстантный метод
+    std::vector<Ball>& getBallsMutable();
 
 private:
     std::vector<Ball> balls_;

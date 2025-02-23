@@ -27,7 +27,7 @@ int main(int argc, char* argv[]) {
                 window.close();
         }
 
-        // Обновление позиций шаров с обработкой столкновений
+        // Обновление позиций шаров
         for (auto& ball : world.getBallsMutable()) {
             Point center = ball.getCenter();
             Velocity velocity = ball.getVelocity();
@@ -37,7 +37,7 @@ int main(int argc, char* argv[]) {
             center.x += velocity.vx * deltaTime.asSeconds();
             center.y += velocity.vy * deltaTime.asSeconds();
 
-            // Столкновение с границами окна
+            // Обработка столкновений с границами
             if (center.x < radius) {
                 center.x = radius;
                 velocity.vx = -velocity.vx;
@@ -59,7 +59,7 @@ int main(int argc, char* argv[]) {
         }
 
         // Отрисовка
-        window.clear();
+        window.clear(sf::Color::White); // Белый фон
         for (const auto& ball : world.getBalls()) {
             ball.draw(painter);
         }

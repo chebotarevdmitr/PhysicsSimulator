@@ -1,6 +1,7 @@
 #include "World.hpp"
 #include <fstream>
 #include <sstream>
+#include <iostream>
 #include "Point.hpp"
 #include "Velocity.hpp"
 
@@ -12,6 +13,8 @@ World::World(const std::string& worldFilePath) {
 
     std::string line;
     while (std::getline(stream, line)) {
+        if (line.empty() || line[0] == '#') continue; // Пропуск пустых строк и комментариев
+
         std::istringstream iss(line);
         double x, y, vx, vy;
         int red, green, blue;
@@ -22,7 +25,8 @@ World::World(const std::string& worldFilePath) {
                    >> red >> green >> blue 
                    >> radius 
                    >> std::boolalpha >> isCollidable)) {
-            break;
+            std::cerr << "Skipping invalid line: " << line << std::endl;
+            continue;
         }
 
         Point center(x, y);
