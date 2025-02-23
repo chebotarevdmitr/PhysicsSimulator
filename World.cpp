@@ -1,5 +1,6 @@
 #include "World.hpp"
 #include <fstream>
+#include <sstream>
 #include "Point.hpp"
 #include "Velocity.hpp"
 
@@ -9,26 +10,33 @@ World::World(const std::string& worldFilePath) {
         throw std::runtime_error("Failed to open world file");
     }
 
-    double x, y, vx, vy;
-    int red, green, blue;
-    double radius;
-    bool isCollidable;
+    std::string line;
+    while (std::getline(stream, line)) {
+        std::istringstream iss(line);
+        double x, y, vx, vy;
+        int red, green, blue;
+        double radius;
+        bool isCollidable;
 
-    while (stream.good()) {
-        stream >> x >> y >> vx >> vy;
-        stream >> red >> green >> blue;
-        stream >> radius;
-        stream >> std::boolalpha >> isCollidable;
+        if (!(iss >> x >> y >> vx >> vy 
+                   >> red >> green >> blue 
+                   >> radius 
+                   >> std::boolalpha >> isCollidable)) {
+            break;
+        }
 
         Point center(x, y);
         Velocity velocity(vx, vy);
         sf::Color color(red, green, blue);
 
-        Ball ball(center, velocity, radius, radius * radius, color);
-        balls_.push_back(ball);
+        balls_.emplace_back(center, velocity, radius, radius * radius, color);
     }
 }
 
 const std::vector<Ball>& World::getBalls() const {
+    return balls_;
+}
+
+std::vector<Ball>& World::getBallsMutable() {
     return balls_;
 }

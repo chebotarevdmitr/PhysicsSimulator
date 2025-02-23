@@ -8,11 +8,11 @@
 class World {
 public:
     World(const std::string& worldFilePath);
-
     const std::vector<Ball>& getBalls() const;
+    std::vector<Ball>& getBallsMutable(); // Добавлен неконстантный метод
 
 private:
-    std::vector<Ball> balls_;  // Вектор шаров
+    std::vector<Ball> balls_;
 };
 
 #endif // WORLD_HPP
